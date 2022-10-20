@@ -16,9 +16,15 @@
           <p class="card-title">
             <label for="exampleInputPassword1" class="form-label">Password</label>
             <input type="password" class="form-control" id="exampleInputPassword1" name="password">
-          </p>                 
+          </p>
+          {% for message in messages %}
+          <div class="alert alert-{{message.tags}} alert-dismissable fade show" role = "alert">
+              {{message}}      
+          </button>
+          </div>
+          {%endfor%}                 
         </div>
         <div class="card-footer bg-transparent border-secondary mx-auto"><button type="submit" class="btn btn-secondary">Submit</button></div>
-      </div>
+      </div>     
    </form> 
 {%endblock%}

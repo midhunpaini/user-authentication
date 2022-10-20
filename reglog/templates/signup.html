@@ -1,0 +1,47 @@
+{%extends 'base.html'%}
+{% load static%}
+{%block content%}
+   <form action="{% url 'signup' %}" method="post">
+    {%csrf_token%}
+    <div class="card border-secondary mb-3 mx-auto" style="max-width: 18rem;">
+        <div class="card-header bg-transparent border-secondary">Sign Up
+          <a href="/home" style="text-decoration:none; color:white"><img src="{%static 'images/home.png' %}" alt="" style="height:2rem; margin-left:10rem;"></a>
+        </div>
+        <div class="card-body text-secondary">
+          <p class="card-title">
+            <label for="exampleInputPassword1" class="form-label">First Name</label>
+            <input type="text" class="form-control" name="fname">
+          </p> 
+          <p class="card-title">
+            <label for="exampleInputPassword1" class="form-label">Last Name</label>
+            <input type="text" class="form-control" name="lname">
+          </p>
+          <p class="card-title">
+            <label for="exampleInputEmail1" class="form-label">Email address</label>
+            <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" name="email">
+          </p>
+          <p class="card-title">
+            <label for="uname" class="form-label">Username</label>
+            <input type="text" class="form-control" id="uname" value="" name="username">
+          </p>  
+          <p class="card-title">
+            <label for="exampleInputPassword1" class="form-label" val>Password</label>
+            <input type="password" class="form-control" id="exampleInputPassword1" name="password">
+          </p> 
+          <p class="card-title">
+            <label for="exampleInputPassword1" class="form-label" val>Confirm Password</label>
+            <input type="password" class="form-control" id="exampleInputPassword1" name="cpassword">
+          </p>
+          {% for message in messages %}
+          <div class="alert alert-{{message.tags}} alert-dismissable fade show" role = "alert">
+          <strong>Message</strong>{{message}} 
+          <button class="btn btn-primary" type="button" class="close" data-dismiss="alert" area-label="Close">
+          <span aria-hidden="true">&times;</span>
+          </button>
+          </div>
+          {%endfor%}                
+        </div>
+        <div class="card-footer bg-transparent border-secondary mx-auto"><button type="submit" class="btn btn-secondary">Submit</button></div>
+      </div>
+   </form> 
+{%endblock%}

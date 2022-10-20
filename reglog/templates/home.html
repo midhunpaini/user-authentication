@@ -1,0 +1,21 @@
+{%extends 'base.html'%}
+
+{%block content%}
+
+<div class="card mx-auto border-secondary" style="width: 18rem;">
+    <div class="card-body">
+      <h5 class="card-title" style="margin-left:5rem;">Welcome</h5>
+      <p class="card-text text-center">Please click sign in if you have already signed up.</p>
+      {% for message in messages %}
+        <div class="alert alert-{{message.tags}} alert-dismissable fade show" role = "alert">
+        <strong>Message</strong>{{message}}         
+        <span aria-hidden="true">&times;</span>
+        </button>
+        </div>
+      {%endfor%}
+      <button type="submit " class="btn btn-secondary"><a href="/signup" style="text-decoration:none; color:white">Sign Up</a></button>
+      <button type="submit" class="btn btn-secondary " style="margin-left: 5rem;"><a href="/signin" style="text-decoration:none; color:white">Sign In</a></button>
+    </div>
+  </div> 
+  
+{%endblock%}

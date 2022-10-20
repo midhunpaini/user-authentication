@@ -1,0 +1,24 @@
+{%extends 'base.html'%}
+{% load static%}
+{%block content%}
+   <form action="/signin" method="post">
+    {%csrf_token%}
+    <div class="card border-secondary mb-3 mx-auto" style="max-width: 18rem;">
+        <div class="card-header bg-transparent border-secondary">Sign In
+          <a href="/home" style="text-decoration:none; color:white"><img src="{%static 'images/home.png' %}" alt="" style="height:2rem; margin-left:10rem;"></a>          
+        </div>   
+        
+        <div class="card-body text-secondary">
+          <p class="card-title">
+            <label for="uname"class="form-label">Username</label>
+            <input type="text" class="form-control" id="uname" name="username">
+          </p>  
+          <p class="card-title">
+            <label for="exampleInputPassword1" class="form-label">Password</label>
+            <input type="password" class="form-control" id="exampleInputPassword1" name="password">
+          </p>                 
+        </div>
+        <div class="card-footer bg-transparent border-secondary mx-auto"><button type="submit" class="btn btn-secondary">Submit</button></div>
+      </div>
+   </form> 
+{%endblock%}
